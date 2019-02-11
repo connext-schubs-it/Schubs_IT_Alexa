@@ -9,14 +9,14 @@ c:\users\sch\documents\visual studio 2017\Projects\Connext_Campus\Essensplan\obj
 c:\users\sch\documents\visual studio 2017\Projects\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.pdb
 c:\users\sch\documents\visual studio 2017\Projects\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.dll
 c:\users\sch\documents\visual studio 2017\Projects\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.pdb
-D:\Projects\SchuBS\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.deps.json
-D:\Projects\SchuBS\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.runtimeconfig.json
-D:\Projects\SchuBS\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.runtimeconfig.dev.json
-D:\Projects\SchuBS\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.dll
-D:\Projects\SchuBS\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.pdb
-D:\Projects\SchuBS\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.csprojAssemblyReference.cache
-D:\Projects\SchuBS\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.csproj.CoreCompileInputs.cache
-D:\Projects\SchuBS\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.AssemblyInfoInputs.cache
-D:\Projects\SchuBS\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.AssemblyInfo.cs
-D:\Projects\SchuBS\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.dll
-D:\Projects\SchuBS\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.pdb
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.deps.json
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.runtimeconfig.json
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.runtimeconfig.dev.json
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.dll
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\bin\Debug\netcoreapp2.0\Essensplan.pdb
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.csprojAssemblyReference.cache
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.csproj.CoreCompileInputs.cache
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.AssemblyInfoInputs.cache
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.AssemblyInfo.cs
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.dll
+C:\Users\gew\Aleggsa\Connext_Campus\Essensplan\obj\Debug\netcoreapp2.0\Essensplan.pdb

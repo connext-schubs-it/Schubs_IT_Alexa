@@ -22,7 +22,7 @@ namespace Essensplan.Controllers
     [Route("api/[controller]")]
     public class AlexaController : ControllerBase
     {
-        private readonly string api = "https://cx-hotel.connext.de:8080/api/speiseplan/kw/";
+        private readonly string api = "http://10.100.252.20/api/speiseplan/kw/";
         private readonly int defaultValue = -1;
 
         private async Task<List<SpeisePlan>> GetSpeisePlaene(int kw, int year)
@@ -30,7 +30,7 @@ namespace Essensplan.Controllers
             var client = new HttpClient();
             var speisePlaene = new List<SpeisePlan>();
             //var path = $"{api}{kw}/{year}";
-            var path = $"{api}2/2019";
+            var path = $"{api}7/2019";
             var response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
@@ -118,7 +118,7 @@ namespace Essensplan.Controllers
         }
 
         private SkillResponse SpeisePlanIntent(SkillRequest request)
-        {            
+        {
             var tag = request.GetDateTime(SlotValues.Tag.ToString());
             var kw = DateTime.Now.GetWeekOfYear();
             var year = DateTime.Now.Year;

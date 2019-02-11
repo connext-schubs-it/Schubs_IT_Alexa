@@ -64,7 +64,8 @@ namespace AssistServer.Models.Api.Alexa.Response
                     },
                     Reprompt = CreateReprompt(),
                     OutputSpeech = new SsmlOutputSpeech { Ssml = $"<speak>{speech}</speak>" },
-                    ShouldEndSession = shouldEndSession,                    
+                    ShouldEndSession = false,
+                    //ShouldEndSession = shouldEndSession,
                 }
             };            
 

@@ -7,6 +7,7 @@ using Essensplan.Extensions;
 using Essensplan.Klassen;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 
 namespace Essensplan.Models.Responses
@@ -16,10 +17,12 @@ namespace Essensplan.Models.Responses
         public static SkillResponse GetSpeisePlanResponse(SkillRequest request, List<SpeisePlan> wochenPlan, DateTime? tag)
         {
             var items = new List<ListItem>();
-            var date = new DateTime(2019,01,7);//tag.Value.Date;
-            var today = date == date;//DateTime.Now.Date;
+            string datum = tag.ToString();
+            //var date = new DateTime(2019, 01, 7);
+            var date = (DateTime)tag;
+            var today = String.Format("{0:MM/dd/yyyy}", date) == String.Format("{0:MM/dd/yyyy}", DateTime.Now.Date);
             var pageToken = today ? SkillTypen.Heutiges : SkillTypen.SpeisePlan;
-            var tagesPlan = wochenPlan.FindAll(p => p.Datum.Date == date);
+            var tagesPlan = wochenPlan.FindAll(p => String.Format("{0:MM/dd/yyyy}", p.Datum.Date) == String.Format("{0:MM/dd/yyyy}", date));
 
             if (tagesPlan != null)
             {
