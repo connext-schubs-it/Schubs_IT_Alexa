@@ -93,7 +93,7 @@ namespace Essensplan.Controllers
 
         private SkillResponse LaunchRequestHandler(SkillRequest request)
         {
-            return SpeisePlanIntent(request);
+            return LaunchIntent(request);
         }
 
         private SkillResponse SessionEndedRequestHandler(SkillRequest request)
@@ -116,6 +116,14 @@ namespace Essensplan.Controllers
             var speisePlan = GetSpeisePlaene(kw, year).Result;
             return EssenDetailsResponseHelper.GetEssenDetailsResponse(request, speisePlan, -1, tag, id);
         }
+
+         private SkillResponse LaunchIntent(SkillRequest request)
+         {
+            string text = "Hallo und herzlich Willkommen";
+            string title = "Connext Campus";
+            string speech = " Hallo dies ist ein LaunchIntent";
+            return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Willkommen, text, title, speech, DateTime.Now, false);
+         }
 
         private SkillResponse SpeisePlanIntent(SkillRequest request)
         {

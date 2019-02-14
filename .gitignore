@@ -6,3 +6,11 @@ Essensplan/obj/Debug/netcoreapp2.0/Essensplan.assets.cache
 .vs/Connext_Campus/v15/Server/sqlite3/storage.ide-shm
 .vs/Connext_Campus/v15/Server/sqlite3/storage.ide
 .vs/Connext_Campus/v15/.suo
+*.lock
+*.ide-shm
+*.ide-shm
+*.ide-wal
+*.json
+*.dll
+*.pdb
+.vs/Connext_Campus/v15/.suo

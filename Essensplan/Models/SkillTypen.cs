@@ -8,6 +8,7 @@ namespace Essensplan.Models.Responses
         [Description("Essensplan für den ")]SpeisePlan = 1,
         [Description("Details zu ")]EssensDetail = 2,
         [Description("Folgende Menüs sind in der Kalenderwoche")]WocheNachKategorie = 3,
+        [Description("Herzlich Willkommen auf dem Connext Campus")] Willkommen = 4,
         Ended = 12,
         Error = 13,
     }
