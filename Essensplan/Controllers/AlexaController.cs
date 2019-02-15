@@ -66,22 +66,22 @@ namespace Essensplan.Controllers
                 if (anfrage.Context.System.ApiAccessToken == null)
                     return new BadRequestResult();
 
-                var response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+                var antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
                 var requestType = anfrage.GetRequestType();
 
                 if (requestType == typeof(LaunchRequest))
-                    response = StartVerwalter(anfrage);
+                    antwort = StartVerwalter(anfrage);
 
                 else if (requestType == typeof(IntentRequest))
-                    response = KommandoVerwalter(anfrage);
+                    antwort = KommandoVerwalter(anfrage);
 
                 else if (requestType == typeof(SessionEndedRequest))
-                    response = SitzungBeendenVerwalter(anfrage);
+                    antwort = SitzungBeendenVerwalter(anfrage);
 
                 else if (requestType == typeof(DisplayElementSelectedRequest))
-                    response = ElementKlickVerwalter(anfrage);
+                    antwort = ElementKlickVerwalter(anfrage);
 
-                return response;
+                return antwort;
             }
             catch (Exception e)
             {
@@ -98,23 +98,23 @@ namespace Essensplan.Controllers
       /// <returns></returns>
       private SkillResponse KommandoVerwalter(SkillRequest anfrage)
         {
-            var response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+            var antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
             var intentRequest = (IntentRequest)anfrage.Request;
 
             if (intentRequest.Intent.Name.Equals("SpeisePlanKommando"))
-                response = SpeisePlanKommando(anfrage);
+                antwort = SpeisePlanKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("TagUndKategorieKommando"))
-                response = TagUndKategorieKommando(anfrage);
+                antwort = TagUndKategorieKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("WocheNachKategorieKommando"))
-                response = WocheNachKategorieIntent(anfrage);
+                antwort = WocheNachKategorieIntent(anfrage);
             else if (intentRequest.Intent.Name.Equals("PreisKommando"))
-                response = PreisIntent(anfrage);
+                antwort = PreisIntent(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
-                response = SitzungBeendenVerwalter(anfrage);
+                antwort = SitzungBeendenVerwalter(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.StopIntent"))
-                response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
+                antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
 
-            return response;
+            return antwort;
         }
 
       // ##############################################################################################################
@@ -239,7 +239,7 @@ namespace Essensplan.Controllers
         }
 
         // ##############################################################################################################
-        private SkillResponse WocheNachKategorieIntent(SkillRequest anfrage)
+        private SkillResponse WocheNachKategorieKommando(SkillRequest anfrage)
         {
             var intentRequest = (IntentRequest)anfrage.Request;
 
@@ -293,6 +293,13 @@ namespace Essensplan.Controllers
         /// </summary>
         /// <param name="heutigeMenues"></param>
         /// <returns></returns>
+        private SkillResponse FalschesKommando(SkillRequest anfrage)
+        {
+            string speech = "Ich konnte Sie leider nicht verstehen. Um den heutigen Speiseplan zu erfahren, sagen sie: Was gibt es heute zu essen?";
+            return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, speech, "", speech, DateTime.Now, false);
+        }
+
+        // ##############################################################################################################
         private List<SpeisePlan> SpeisePlanConverter(List<SpeisePlanDB> heutigeMenues)
         {
             var result = new List<SpeisePlan>();
