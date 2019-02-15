@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace AssistServer.Models.Api.Alexa.Response
 {
-    public class AlexaResponseHelper
+    public class AlexaAntwortHelfer
     {
         public const string Ended = "Danke und bis zum nächsten mal";
 
@@ -29,7 +29,7 @@ namespace AssistServer.Models.Api.Alexa.Response
                  Typ = SkillTypen.SpeisePlan,
                  UrlCard = "https://vivmobil.connext.de/alexa/1200x800_3.png",
                  UrlTemplate = "https://vivmobil.connext.de/alexa/1024x600_3.png",
-                 CardTitle = "Essensplan für den "
+                 CardTitle = "Essensplan für"
              },
              new SkillTypContent
              {
@@ -46,7 +46,7 @@ namespace AssistServer.Models.Api.Alexa.Response
              },
           };
 
-        public static SkillResponse CreateSimpleResponse(SkillRequest request, SkillTypen typ, string text, string title, string speech, DateTime date, bool? shouldEndSession)
+        public static SkillResponse GibEinfacheAntwort(SkillRequest request, SkillTypen typ, string text, string title, string speech, DateTime date, bool? shouldEndSession)
         {
             if (speech == null)
                 speech = text;
@@ -64,7 +64,7 @@ namespace AssistServer.Models.Api.Alexa.Response
                     },
                     Reprompt = CreateReprompt(),
                     OutputSpeech = new SsmlOutputSpeech { Ssml = $"<speak>{speech}</speak>" },
-                    ShouldEndSession = false,
+                    ShouldEndSession = shouldEndSession
                     //ShouldEndSession = shouldEndSession,
                 }
             };            

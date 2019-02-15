@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace Essensplan.Models.Responses
 {
-    public class EssenDetailsResponseHelper : AlexaResponseHelper
+    public class EssenDetailsResponseHelper : AlexaAntwortHelfer
     {
         public static SkillResponse GetEssenDetailsResponse(SkillRequest request, List<SpeisePlan> wochenPlan, int kategorie, DateTime? tag, int id)
         {
@@ -29,7 +29,7 @@ namespace Essensplan.Models.Responses
                     menue = tagesPlan.Find(m => m.Kategorie == kategorie);
             }
             else            
-                menue = wochenPlan.Find(p => p.Id == id);            
+                menue = wochenPlan.Find(p => p.Id == id);    //menue = wochenPlan.Find(p => p.Id == id);
 
             if (menue != null)
             {                
@@ -42,7 +42,7 @@ namespace Essensplan.Models.Responses
                 return CreateBodySkillResponse(request, pageToken, template, speech, card, date, null);
             }
                         
-            return CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.NoEssensDetails.ToDescription(), "", null, date, false);                        
+            return GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.NoEssensDetails.ToDescription(), "", null, date, false);                        
         }
 
         private static IOutputSpeech CreateSpeech(SpeisePlan menue, DateTime tag)
@@ -52,7 +52,7 @@ namespace Essensplan.Models.Responses
             if (tag.Date == DateTime.Now.Date)
                 text = $"{kategorie} ist heute: {menue.Beschreibung}.";
             else
-                text = $"{kategorie} ist am {tag.Date.SayAsDate()}: {menue.Beschreibung}.";
+                text = $"{kategorie} ist am {tag.Date.SayAsDateYear()}: {menue.Beschreibung}.";
 
             return new SsmlOutputSpeech { Ssml = $"<speak>{text}</speak>" };
         }

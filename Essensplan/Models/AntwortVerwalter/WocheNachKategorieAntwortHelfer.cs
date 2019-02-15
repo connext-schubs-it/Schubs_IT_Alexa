@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Essensplan.Models.Responses
 {
-    public class WocheNachKategorieResponseHelper : AlexaResponseHelper
+    public class WocheNachKategorieAntwortHelfer : AlexaAntwortHelfer
     {
         private static CultureInfo cInfo = new CultureInfo("de-De");
 
@@ -38,7 +38,7 @@ namespace Essensplan.Models.Responses
                 return CreateListSkillResponse(request, pageToken, items, speech, card, title, DateTime.Now, null);
             }
 
-            return CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, DateTime.Now, false);
+            return GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, DateTime.Now, false);
         }
 
         private static IOutputSpeech CreateSpeech(SkillTypen typ, List<SpeisePlan> items, int kategorie, int kw)

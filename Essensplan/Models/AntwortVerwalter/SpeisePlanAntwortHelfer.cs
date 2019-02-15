@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace Essensplan.Models.Responses
 {
-    public class SpeisePlanResponseHelper : AlexaResponseHelper
+    public class SpeisePlanAntwortHelfer : AlexaAntwortHelfer
     {
         public static SkillResponse GetSpeisePlanResponse(SkillRequest request, List<SpeisePlan> wochenPlan, DateTime? tag)
         {
@@ -39,7 +39,7 @@ namespace Essensplan.Models.Responses
                 return CreateListSkillResponse(request, pageToken, items, speech, card, title, date, null);
             }
 
-            return CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, date, false);
+            return GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, date, false);
         }
 
         private static IOutputSpeech CreateSpeech(SkillTypen typ, List<SpeisePlan> items, DateTime tag, bool today)
@@ -50,7 +50,7 @@ namespace Essensplan.Models.Responses
                 if (today)
                     text += $"{typ.ToDescription()}. ";
                 else
-                    text += $"{typ.ToDescription()} {tag.SayAsDateYear()}. ";
+                    text += $"{typ.ToDescription()} {ToWochentag(tag)} den {tag.SayAsDateYear()}. ";
 
                 text += CreateEssensPlanSpeech(items);                
             }
@@ -96,7 +96,7 @@ namespace Essensplan.Models.Responses
         {
             var title = skillParameter.FirstOrDefault(t => t.Typ == typ)?.CardTitle;
             if (!today)
-                title += $" {tag.ToShortDateString()}";
+                title += $" {ToWochentag(tag)} den {tag.ToShortDateString()}";
 
             return title;
         }
@@ -105,7 +105,7 @@ namespace Essensplan.Models.Responses
         {
             var menue_1 = items.Find(i => i.Kategorie == (int)MenueKategorien.Menue_1).Beschreibung;
             var menue_2 = items.Find(i => i.Kategorie == (int)MenueKategorien.Menue_2);
-            var vegetarisch = items.Find(i => i.Kategorie == (int)MenueKategorien.Vegetarisch).Beschreibung;
+            var vegetarisch = items.Find(i => i.Kategorie == (int)MenueKategorien.Vegetarisch)?.Beschreibung;
             var suppe = items.Find(i => i.Kategorie == (int)MenueKategorien.Suppe).Beschreibung;
 
             var text = $"{menue_1}";
@@ -114,10 +114,33 @@ namespace Essensplan.Models.Responses
             else
                 text += ". ";
 
-            text += $"Das vegetarische Menü ist {vegetarisch}, ";
-            text += $"und als Vorspeise gibt es {suppe}.";
+            text += $"Das vegetarische Menü ist {vegetarisch}, "; // text += $"Das vegetarische Menü ist {vegetarisch}, ";
+            text += $"und als Vorspeise gibt es {suppe}";
 
             return text;
+        }
+
+        public static string ToWochentag(DateTime date)
+        {
+            switch (date.DayOfWeek.AsInt())
+            {
+                case 1:
+                    return "Montag";
+                case 2:
+                    return "Dienstag";
+                case 3:
+                    return "Mittwoch";
+                case 4:
+                    return "Donnerstag";
+                case 5:
+                    return "Freitag";
+                case 6:
+                    return "Samstag";
+                case 0:
+                    return "Sonntag";
+            }
+
+            return null;
         }
     }
 }

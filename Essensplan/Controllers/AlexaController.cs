@@ -22,19 +22,23 @@ namespace Essensplan.Controllers
     [Route("api/[controller]")]
     public class AlexaController : ControllerBase
     {
-        private readonly string api = "http://10.100.252.20/api/speiseplan/kw/";
+        private readonly string api = "http://10.100.252.20/api/speiseplan/kw/"; // Denise Testdatenbank
         private readonly int defaultValue = -1;
 
+        // ##############################################################################################################
         private async Task<List<SpeisePlan>> GetSpeisePlaene(int kw, int year)
         {
             var client = new HttpClient();
             var speisePlaene = new List<SpeisePlan>();
-            //var path = $"{api}{kw}/{year}";
-            var path = $"{api}7/2019";
+            var path = $"{api}{kw}/{year}";
+            path = "https://cx-schubsit.connext.de/api/speiseplan/kw/7"; // Markus Datenbank. Pläne müssen mit dem SpeiseplanConverter konvertiert werden
+            //path = "https://cx-hotel.connext.de:8080/api/speiseplan/kw/2/2019";  // Dennis Datenbank
+            //var path = $"{api}7/2019";
             var response = await client.GetAsync(path);
             if (response.IsSuccessStatusCode)
             {
-                speisePlaene = JsonConvert.DeserializeObject<List<SpeisePlan>>(await response.Content.ReadAsStringAsync());
+                var speisePlaeneDB = JsonConvert.DeserializeObject<List<SpeisePlanDB>>(await response.Content.ReadAsStringAsync());
+                speisePlaene = SpeisePlanConverter(speisePlaeneDB);
                 speisePlaene = speisePlaene.FindAll(s => s.Kategorie != (int)MenueKategorien.Salat_1);
                 speisePlaene = speisePlaene.FindAll(s => s.Kategorie != (int)MenueKategorien.Salat_2);
             }
@@ -42,28 +46,29 @@ namespace Essensplan.Controllers
             return speisePlaene;
         }
 
+        // ##############################################################################################################
         [HttpPost]
-        public dynamic Alexa([FromBody]SkillRequest request)
+        public dynamic Alexa([FromBody]SkillRequest anfrage)
         {
             try
             {
-                if (request.Context.System.ApiAccessToken == null)
+                if (anfrage.Context.System.ApiAccessToken == null)
                     return new BadRequestResult();
 
-                var response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
-                var requestType = request.GetRequestType();
+                var response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+                var requestType = anfrage.GetRequestType();
 
                 if (requestType == typeof(LaunchRequest))
-                    response = LaunchRequestHandler(request);
+                    response = StartVerwalter(anfrage);
 
                 else if (requestType == typeof(IntentRequest))
-                    response = IntentRequestHandler(request);
+                    response = KommandoVerwalter(anfrage);
 
                 else if (requestType == typeof(SessionEndedRequest))
-                    response = SessionEndedRequestHandler(request);
+                    response = SitzungBeendenVerwalter(anfrage);
 
                 else if (requestType == typeof(DisplayElementSelectedRequest))
-                    response = SelectedRequestHandler(request);
+                    response = ElementKlickVerwalter(anfrage);
 
                 return response;
             }
@@ -72,36 +77,47 @@ namespace Essensplan.Controllers
                 CreateErrorLog(e);
                 return null;
             }
-        }        
+        }
 
-        private SkillResponse IntentRequestHandler(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse KommandoVerwalter(SkillRequest request)
         {
-            var response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+            var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
             var intentRequest = (IntentRequest)request.Request;
 
-            if (intentRequest.Intent.Name.Equals("SpeisePlanIntent"))
-                response = SpeisePlanIntent(request);
-            else if (intentRequest.Intent.Name.Equals("EssenDetailsIntent"))
-                response = EssenDetailsIntent(request);
-            else if (intentRequest.Intent.Name.Equals("WocheNachKategorieIntent"))
+            if (intentRequest.Intent.Name.Equals("SpeisePlanKommando"))
+                response = SpeisePlanKommando(request);
+            else if (intentRequest.Intent.Name.Equals("TagUndKategorieKommando"))
+                response = TagUndKategorieKommando(request);
+            else if (intentRequest.Intent.Name.Equals("WocheNachKategorieKommando"))
                 response = WocheNachKategorieIntent(request);
-            else if (intentRequest.Intent.Name.Equals("AMAZON.StopIntent") || intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
-                response = SessionEndedRequestHandler(request);
+            else if (intentRequest.Intent.Name.Equals("PreisKommando"))
+                response = PreisIntent(request);
+            else if (intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
+                response = SitzungBeendenVerwalter(request);
+            else if (intentRequest.Intent.Name.Equals("AMAZON.StopIntent"))
+                response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
 
             return response;
         }
 
-        private SkillResponse LaunchRequestHandler(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse StartVerwalter(SkillRequest anfrage)
         {
-            return LaunchIntent(request);
+            string text = "Herzlich Willkommen!";
+            string title = "Connext Campus";
+            string speech = "Willkommen beim Connext Campus. Was kann ich für Sie tun?";
+            return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Willkommen, text, title, speech, DateTime.Now, false);
         }
 
-        private SkillResponse SessionEndedRequestHandler(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse SitzungBeendenVerwalter(SkillRequest request)
         {
-            return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Ended, AlexaResponseHelper.Ended, FehlerTypen.Ended.ToDescription(), null, DateTime.Now, true);
+            return AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Ended, AlexaAntwortHelfer.Ended, FehlerTypen.Ended.ToDescription(), null, DateTime.Now, true);
         }
 
-        private SkillResponse SelectedRequestHandler(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse ElementKlickVerwalter(SkillRequest request)
         {
             var kw = 0;
             var year = DateTime.Now.Year;
@@ -117,17 +133,10 @@ namespace Essensplan.Controllers
             return EssenDetailsResponseHelper.GetEssenDetailsResponse(request, speisePlan, -1, tag, id);
         }
 
-         private SkillResponse LaunchIntent(SkillRequest request)
-         {
-            string text = "Hallo und herzlich Willkommen";
-            string title = "Connext Campus";
-            string speech = " Hallo dies ist ein LaunchIntent";
-            return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Willkommen, text, title, speech, DateTime.Now, false);
-         }
-
-        private SkillResponse SpeisePlanIntent(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse SpeisePlanKommando(SkillRequest anfrage)
         {
-            var tag = request.GetDateTime(SlotValues.Tag.ToString());
+            var tag = anfrage.GetDateTime(SlotValues.Tag.ToString());
             var kw = DateTime.Now.GetWeekOfYear();
             var year = DateTime.Now.Year;
             var numberKW = DateTime.Now.GetNumberOfWeeks();
@@ -144,30 +153,31 @@ namespace Essensplan.Controllers
 
             var speisePlan = GetSpeisePlaene(kw, year).Result;
             if (speisePlan != null)
-                return SpeisePlanResponseHelper.GetSpeisePlanResponse(request, speisePlan, tag);
+                return SpeisePlanAntwortHelfer.GetSpeisePlanResponse(anfrage, speisePlan, tag);
             else
-                return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, tag.Value.Date, false);
+                return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, tag.Value.Date, false);
         }
 
-        private SkillResponse EssenDetailsIntent(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse TagUndKategorieKommando(SkillRequest anfrage)
         {
-            var intentRequest = (IntentRequest)request.Request;
+            var intentRequest = (IntentRequest)anfrage.Request;
 
             if (intentRequest.DialogState.Equals("STARTED"))
             {
-                return ResponseBuilder.DialogDelegate(request.Session, intentRequest.Intent);
+                return ResponseBuilder.DialogDelegate(anfrage.Session, intentRequest.Intent);
             }
             else if (!intentRequest.DialogState.Equals("COMPLETED"))
             {
-                return ResponseBuilder.DialogDelegate(request.Session);
+                return ResponseBuilder.DialogDelegate(anfrage.Session);
             }
             else
             {
                 var numberKW = DateTime.Now.GetNumberOfWeeks();
                 var kw = DateTime.Now.GetWeekOfYear();
                 var year = DateTime.Now.Year;
-                var kategorie = request.GetSlotValueInt(SlotValues.Kategorie.ToString(), defaultValue);
-                var tag = request.GetDateTime(SlotValues.Tag.ToString());
+                var kategorie = anfrage.GetSlotValueInt(SlotValues.Kategorie.ToString(), defaultValue);
+                var tag = anfrage.GetDateTime(SlotValues.Tag.ToString());
 
                 if (tag == null)
                     tag = DateTime.Now;
@@ -181,31 +191,32 @@ namespace Essensplan.Controllers
 
                 var speisePlan = GetSpeisePlaene(kw, year).Result;
                 if (kategorie != defaultValue)
-                    return EssenDetailsResponseHelper.GetEssenDetailsResponse(request, speisePlan, kategorie, tag, -1);
+                    return EssenDetailsResponseHelper.GetEssenDetailsResponse(anfrage, speisePlan, kategorie, tag, 0);
                 else
-                    return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, tag.Value.Date, false);
+                    return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, tag.Value.Date, false);
             }
         }
 
-        private SkillResponse WocheNachKategorieIntent(SkillRequest request)
+        // ##############################################################################################################
+        private SkillResponse WocheNachKategorieIntent(SkillRequest anfrage)
         {
-            var intentRequest = (IntentRequest)request.Request;
+            var intentRequest = (IntentRequest)anfrage.Request;
 
             if (intentRequest.DialogState.Equals("STARTED"))
             {
-                return ResponseBuilder.DialogDelegate(request.Session, intentRequest.Intent);
+                return ResponseBuilder.DialogDelegate(anfrage.Session, intentRequest.Intent);
             }
             else if (!intentRequest.DialogState.Equals("COMPLETED"))
             {
-                return ResponseBuilder.DialogDelegate(request.Session);
+                return ResponseBuilder.DialogDelegate(anfrage.Session);
             }
             else
             {
                 var numberKW = DateTime.Now.GetNumberOfWeeks();
                 var kw = DateTime.Now.GetWeekOfYear();
                 var year = DateTime.Now.Year;
-                var kategorie = request.GetSlotValueInt(SlotValues.Kategorie.ToString(), defaultValue);
-                var nextWeek = request.GetSlotValueInt(SlotValues.NextWeek.ToString(), defaultValue) == defaultValue;
+                var kategorie = anfrage.GetSlotValueInt(SlotValues.Kategorie.ToString(), defaultValue);
+                var nextWeek = anfrage.GetSlotValueInt(SlotValues.NextWeek.ToString(), defaultValue) == defaultValue;
 
                 if (!nextWeek)
                     kw++;
@@ -217,16 +228,52 @@ namespace Essensplan.Controllers
 
                 var speisePlan = GetSpeisePlaene(kw, year).Result;
                 if (kategorie != defaultValue)
-                    return WocheNachKategorieResponseHelper.GetWocheNachKategorieResponse(request,speisePlan, kategorie, kw);
+                    return WocheNachKategorieAntwortHelfer.GetWocheNachKategorieResponse(anfrage,speisePlan, kategorie, kw);
                 else
-                    return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+                    return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
             }
         }
 
-        //##############################################################################################################
+        // ##############################################################################################################
+        private SkillResponse PreisIntent(SkillRequest anfrage)
+        {
+            string speech = "Die Vorspeise kostet 2 Euro. Menü 1 kostet 7,90 Euro. Menü 2 kostet 6,90 Euro. Das vegetarische Menü kostet 4,90 Euro.";
+            return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Preis, speech, "Preise", speech, DateTime.Now, false);
+        }
+
+        // ##############################################################################################################
+        private List<SpeisePlan> SpeisePlanConverter(List<SpeisePlanDB> heutigeMenues)
+        {
+            var result = new List<SpeisePlan>();
+
+            foreach (SpeisePlanDB tmp in heutigeMenues)
+            {
+                foreach (Gericht gericht in tmp.Gerichte)
+                {
+                    var speise = new SpeisePlan();
+                    speise.Beschreibung = gericht.Bezeichnung;
+                    speise.Id = gericht.ID;
+                    var values = Enum.GetValues(typeof(MenueKategorienDB));
+                    foreach (MenueKategorienDB z in values)
+                    {
+                        if (gericht.Kategorie.Equals(z.ToDescription()))
+                        {
+                            speise.Kategorie = z.AsInt();
+                        }
+                    }
+
+                    speise.Preis = Convert.ToDouble(gericht.Preis);
+                    speise.Datum = tmp.Datum;
+                    result.Add(speise);
+                }
+            }
+            return result;
+        }
+
+        // ##############################################################################################################
         private void CreateErrorLog(Exception e)
         {
-            var path = @"C:\Users\sch\Desktop\Alexa\ErrorLog.txt";
+            var path = @"C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\ErrorLog.txt";
 
             using (var writer = new StreamWriter(path, true))
             {                

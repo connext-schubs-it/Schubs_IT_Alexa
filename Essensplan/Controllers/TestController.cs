@@ -23,7 +23,7 @@ namespace Essensplan.Controllers
             if (request.Context.System.ApiAccessToken == null)
                 return new BadRequestResult();
             
-            var response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
+            var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
             var requestType = request.GetRequestType();
 
             if (requestType == typeof(LaunchRequest))
@@ -40,12 +40,12 @@ namespace Essensplan.Controllers
 
         private SkillResponse LaunchRequestHandler(SkillRequest request)
         {
-            return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Ended, "Hi. Mit diesem Skill kannst du zwei Farben mischen.", "", null, DateTime.Now, null);
+            return AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Ended, "Hi. Mit diesem Skill kannst du zwei Farben mischen.", "", null, DateTime.Now, null);
         }
 
         private SkillResponse IntentRequestHandler(SkillRequest request)
         {
-            var response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
+            var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
             var intentRequest = (IntentRequest)request.Request;
 
             if (intentRequest.Intent.Name.Equals("FarbeMischenIntent"))
@@ -56,12 +56,12 @@ namespace Essensplan.Controllers
 
         private SkillResponse SessionEndedRequestHandler(SkillRequest request)
         {
-            return AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Ended, "Alles klar, machs gut.", "", null, DateTime.Now, true);
+            return AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Ended, "Alles klar, machs gut.", "", null, DateTime.Now, true);
         }
 
         private SkillResponse FarbeMischenIntent(SkillRequest request)
         {
-            var response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
+            var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
             var intentRequest = (IntentRequest)request.Request;
 
             if (intentRequest.DialogState.Equals("STARTED"))
@@ -80,19 +80,19 @@ namespace Essensplan.Controllers
 
                 if (farbe1 == 1 && farbe2 == 2 || farbe1 == 2 && farbe2 == 1)
                 {
-                    response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, $"{text} lila.", "", null, DateTime.Now, null);
+                    response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, $"{text} lila.", "", null, DateTime.Now, null);
                 }
                 else if (farbe1 == 1 && farbe2 == 3 || farbe1 == 3 && farbe2 == 1)
                 {
-                    response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, $"{text} orange.", "", null, DateTime.Now, null);
+                    response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, $"{text} orange.", "", null, DateTime.Now, null);
                 }
                 else if (farbe1 == 3 && farbe2 == 2 || farbe1 == 2 && farbe2 == 3)
                 {
-                    response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, $"{text} grün.", "", null, DateTime.Now, null);
+                    response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, $"{text} grün.", "", null, DateTime.Now, null);
                 }
                 else if (farbe1 == farbe2)
                 {
-                    response = AlexaResponseHelper.CreateSimpleResponse(request, SkillTypen.Error, "<s>Hey</s>, die gleiche Farbe zu mischen ist witzlos.", "", null, DateTime.Now, null);
+                    response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, "<s>Hey</s>, die gleiche Farbe zu mischen ist witzlos.", "", null, DateTime.Now, null);
                 }
 
                 return response;

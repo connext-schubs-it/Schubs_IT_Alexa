@@ -1,0 +1,363 @@
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An error occurred while sending the request.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.EssenDetailsIntent(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 181
+   at Essensplan.Controllers.AlexaController.IntentRequestHandler(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 85
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 60
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An error occurred while sending the request.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.EssenDetailsIntent(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 181
+   at Essensplan.Controllers.AlexaController.IntentRequestHandler(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 85
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 60
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An error occurred while sending the request.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanIntent(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 144
+   at Essensplan.Controllers.AlexaController.IntentRequestHandler(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 83
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 60
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An error occurred while sending the request.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.EssenDetailsIntent(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 181
+   at Essensplan.Controllers.AlexaController.IntentRequestHandler(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 85
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 60
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (An invalid request URI was provided. The request URI must either be an absolute URI or BaseAddress must be set.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage)
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage)
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage)
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Alexa_Neu\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 106
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Alexa_Neu\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanAntwort(SkillRequest anfrage, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Alexa_Neu\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 151
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa_Neu\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'Essensplan.Klassen.Speisen' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path '[0].Speisen', line 1, position 43.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'Essensplan.Klassen.Speisen' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path '[0].Speisen', line 1, position 43.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Cannot deserialize the current JSON array (e.g. [1,2,3]) into type 'Essensplan.Klassen.Speisen' because the type requires a JSON object (e.g. {"name":"value"}) to deserialize correctly.
+To fix this error either change the JSON to a JSON object (e.g. {"name":"value"}) or change the deserialized type to an array or a type that implements a collection interface (e.g. ICollection, IList) like List<T> that can be deserialized from a JSON array. JsonArrayAttribute can also be added to the type to force it to deserialize from a JSON array.
+Path '[0].Speisen', line 1, position 43.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Unexpected character encountered while parsing value: [. Path '[0].Speisen', line 1, position 43.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 149
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 86
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 63
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 152
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 88
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Error converting value {null} to type 'System.Int32'. Path '[0].Speisen[0].Kategorie', line 1, position 113.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 152
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 88
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Value cannot be null.
+Parameter name: String)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 152
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 88
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Value cannot be null.
+Parameter name: String)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 152
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 88
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Value cannot be null.
+Parameter name: String)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 152
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 88
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Alexa Prototype MarkusDB\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Object reference not set to an instance of an object.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 154
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Object reference not set to an instance of an object.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 154
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Object reference not set to an instance of an object.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 154
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Input string was not in a correct format.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 154
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.AggregateException
+Error Message: One or more errors occurred. (Input string was not in a correct format.)
+Stack Trace:    at System.Threading.Tasks.Task`1.GetResultCore(Boolean waitCompletionNotification)
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 154
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 108
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanResponse(SkillRequest request, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 156
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 108
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanResponse(SkillRequest request, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 156
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 108
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanResponse(SkillRequest request, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 156
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 108
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanResponse(SkillRequest request, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 156
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 108
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanResponse(SkillRequest request, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 156
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
+===========Start=============
+Error Type: System.NullReferenceException
+Error Message: Object reference not set to an instance of an object.
+Stack Trace:    at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateEssensPlanSpeech(List`1 items) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 108
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.CreateSpeech(SkillTypen typ, List`1 items, DateTime tag, Boolean today) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 55
+   at Essensplan.Models.Responses.SpeisePlanAntwortHelfer.GetSpeisePlanResponse(SkillRequest request, List`1 wochenPlan, Nullable`1 tag) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Models\AntwortVerwalter\SpeisePlanAntwortHelfer.cs:line 35
+   at Essensplan.Controllers.AlexaController.SpeisePlanKommando(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 156
+   at Essensplan.Controllers.AlexaController.KommandoVerwalter(SkillRequest request) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 89
+   at Essensplan.Controllers.AlexaController.Alexa(SkillRequest anfrage) in C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\Essensplan\Controllers\AlexaController.cs:line 65
+============End==============
+
+
