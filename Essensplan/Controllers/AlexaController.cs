@@ -55,22 +55,22 @@ namespace Essensplan.Controllers
                 if (anfrage.Context.System.ApiAccessToken == null)
                     return new BadRequestResult();
 
-                var response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+                var antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
                 var requestType = anfrage.GetRequestType();
 
                 if (requestType == typeof(LaunchRequest))
-                    response = StartVerwalter(anfrage);
+                    antwort = StartVerwalter(anfrage);
 
                 else if (requestType == typeof(IntentRequest))
-                    response = KommandoVerwalter(anfrage);
+                    antwort = KommandoVerwalter(anfrage);
 
                 else if (requestType == typeof(SessionEndedRequest))
-                    response = SitzungBeendenVerwalter(anfrage);
+                    antwort = SitzungBeendenVerwalter(anfrage);
 
                 else if (requestType == typeof(DisplayElementSelectedRequest))
-                    response = ElementKlickVerwalter(anfrage);
+                    antwort = ElementKlickVerwalter(anfrage);
 
-                return response;
+                return antwort;
             }
             catch (Exception e)
             {
@@ -80,25 +80,27 @@ namespace Essensplan.Controllers
         }
 
         // ##############################################################################################################
-        private SkillResponse KommandoVerwalter(SkillRequest request)
+        private SkillResponse KommandoVerwalter(SkillRequest anfrage)
         {
-            var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
-            var intentRequest = (IntentRequest)request.Request;
+            var antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+            var kommandoBefehl = (IntentRequest)anfrage.Request;
 
-            if (intentRequest.Intent.Name.Equals("SpeisePlanKommando"))
-                response = SpeisePlanKommando(request);
-            else if (intentRequest.Intent.Name.Equals("TagUndKategorieKommando"))
-                response = TagUndKategorieKommando(request);
-            else if (intentRequest.Intent.Name.Equals("WocheNachKategorieKommando"))
-                response = WocheNachKategorieIntent(request);
-            else if (intentRequest.Intent.Name.Equals("PreisKommando"))
-                response = PreisIntent(request);
-            else if (intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
-                response = SitzungBeendenVerwalter(request);
-            else if (intentRequest.Intent.Name.Equals("AMAZON.StopIntent"))
-                response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
+            if (kommandoBefehl.Intent.Name.Equals("SpeisePlanKommando"))
+                antwort = SpeisePlanKommando(anfrage);
+            else if (kommandoBefehl.Intent.Name.Equals("TagUndKategorieKommando"))
+                antwort = TagUndKategorieKommando(anfrage);
+            else if (kommandoBefehl.Intent.Name.Equals("WocheNachKategorieKommando"))
+                antwort = WocheNachKategorieKommando(anfrage);
+            else if (kommandoBefehl.Intent.Name.Equals("PreisKommando"))
+                antwort = PreisKommando(anfrage);
+            else if (kommandoBefehl.Intent.Name.Equals("AMAZON.FallbackIntent"))
+                antwort = FalschesKommando(anfrage);
+            else if (kommandoBefehl.Intent.Name.Equals("AMAZON.CancelIntent"))
+                antwort = SitzungBeendenVerwalter(anfrage);
+            else if (kommandoBefehl.Intent.Name.Equals("AMAZON.StopIntent"))
+                antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
 
-            return response;
+            return antwort;
         }
 
         // ##############################################################################################################
@@ -198,7 +200,7 @@ namespace Essensplan.Controllers
         }
 
         // ##############################################################################################################
-        private SkillResponse WocheNachKategorieIntent(SkillRequest anfrage)
+        private SkillResponse WocheNachKategorieKommando(SkillRequest anfrage)
         {
             var intentRequest = (IntentRequest)anfrage.Request;
 
@@ -235,10 +237,17 @@ namespace Essensplan.Controllers
         }
 
         // ##############################################################################################################
-        private SkillResponse PreisIntent(SkillRequest anfrage)
+        private SkillResponse PreisKommando(SkillRequest anfrage)
         {
             string speech = "Die Vorspeise kostet 2 Euro. Menü 1 kostet 7,90 Euro. Menü 2 kostet 6,90 Euro. Das vegetarische Menü kostet 4,90 Euro.";
             return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Preis, speech, "Preise", speech, DateTime.Now, false);
+        }
+
+        // ##############################################################################################################
+        private SkillResponse FalschesKommando(SkillRequest anfrage)
+        {
+            string speech = "Ich konnte Sie leider nicht verstehen. Um den heutigen Speiseplan zu erfahren, sagen sie: Was gibt es heute zu essen?";
+            return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, speech, "", speech, DateTime.Now, false);
         }
 
         // ##############################################################################################################
