@@ -106,7 +106,7 @@ namespace Essensplan.Controllers
             else if (intentRequest.Intent.Name.Equals("TagUndKategorieKommando"))
                 antwort = TagUndKategorieKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("WocheNachKategorieKommando"))
-                antwort = WocheNachKategorieIntent(anfrage);
+                antwort = WocheNachKategorieKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("PreisKommando"))
                 antwort = PreisIntent(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
@@ -287,13 +287,13 @@ namespace Essensplan.Controllers
             return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Preis, speech, "Preise", speech, DateTime.Now, false);
         }
 
-        // ##############################################################################################################
-        /// <summary>
-        /// Konvertiert die Daten der DB in verarbeitbare Elemente
-        /// </summary>
-        /// <param name="heutigeMenues"></param>
-        /// <returns></returns>
-        private SkillResponse FalschesKommando(SkillRequest anfrage)
+      // ##############################################################################################################
+      /// <summary>
+      /// Konvertiert die Daten der DB in verarbeitbare Elemente
+      /// </summary>
+      /// <param name="anfrage"></param>
+      /// <returns></returns>
+      private SkillResponse FalschesKommando(SkillRequest anfrage)
         {
             string speech = "Ich konnte Sie leider nicht verstehen. Um den heutigen Speiseplan zu erfahren, sagen sie: Was gibt es heute zu essen?";
             return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, speech, "", speech, DateTime.Now, false);
@@ -329,6 +329,10 @@ namespace Essensplan.Controllers
         }
 
         // ##############################################################################################################
+        /// <summary>
+        /// Erzeugt eine Fehlermeldung
+        /// </summary>
+        /// <param name="e">Exception</param>
         private void CreateErrorLog(Exception e)
         {
             var path = @"C:\Users\gew\Documents\GitHub\Schubs_IT_Alexa\ErrorLog.txt";
