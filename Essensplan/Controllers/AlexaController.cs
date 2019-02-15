@@ -25,8 +25,14 @@ namespace Essensplan.Controllers
         private readonly string api = "http://10.100.252.20/api/speiseplan/kw/"; // Denise Testdatenbank
         private readonly int defaultValue = -1;
 
-        // ##############################################################################################################
-        private async Task<List<SpeisePlan>> GetSpeisePlaene(int kw, int year)
+      // ##############################################################################################################
+      /// <summary>
+      /// Gibt Speisepläne an hand der Kalenderwoche und des Jahres zurück
+      /// </summary>
+      /// <param name="kw">Legt die Kalenderwoche des Jahres fest in der die Speisepläne angezeigt werden</param>
+      /// <param name="year">Legt die das Jahr fest in der die Speisepläne angezeigt werden</param>
+      /// <returns></returns>
+      private async Task<List<SpeisePlan>> GetSpeisePlaene(int kw, int year)
         {
             var client = new HttpClient();
             var speisePlaene = new List<SpeisePlan>();
@@ -47,6 +53,11 @@ namespace Essensplan.Controllers
         }
 
         // ##############################################################################################################
+        /// <summary>
+        /// Entscheidet von welche Art die Anfrage ist und ruft die entsprechende Methode dafür auf
+        /// </summary>
+        /// <param name="anfrage">Enthält die Anfrage vom Amazon Alexa Server</param>
+        /// <returns></returns>
         [HttpPost]
         public dynamic Alexa([FromBody]SkillRequest anfrage)
         {
@@ -79,30 +90,40 @@ namespace Essensplan.Controllers
             }
         }
 
-        // ##############################################################################################################
-        private SkillResponse KommandoVerwalter(SkillRequest request)
+      // ##############################################################################################################
+      /// <summary>
+      /// Entscheidet welche Art des Kommandos gesprochen wurde
+      /// </summary>
+      /// <param name="anfrage">Enthält die Anfrage vom Amazon Alexa Server vom Typ Kommando</param>
+      /// <returns></returns>
+      private SkillResponse KommandoVerwalter(SkillRequest anfrage)
         {
-            var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
-            var intentRequest = (IntentRequest)request.Request;
+            var response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, false);
+            var intentRequest = (IntentRequest)anfrage.Request;
 
             if (intentRequest.Intent.Name.Equals("SpeisePlanKommando"))
-                response = SpeisePlanKommando(request);
+                response = SpeisePlanKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("TagUndKategorieKommando"))
-                response = TagUndKategorieKommando(request);
+                response = TagUndKategorieKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("WocheNachKategorieKommando"))
-                response = WocheNachKategorieIntent(request);
+                response = WocheNachKategorieIntent(anfrage);
             else if (intentRequest.Intent.Name.Equals("PreisKommando"))
-                response = PreisIntent(request);
+                response = PreisIntent(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
-                response = SitzungBeendenVerwalter(request);
+                response = SitzungBeendenVerwalter(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.StopIntent"))
-                response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
+                response = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
 
             return response;
         }
 
-        // ##############################################################################################################
-        private SkillResponse StartVerwalter(SkillRequest anfrage)
+      // ##############################################################################################################
+      /// <summary>
+      /// Enthält die Antwort des Alexa Skills welche beim Starten des Skills gegeben wird
+      /// </summary>
+      /// <param name="anfrage">Enthält die Anfrage vom Amazon Alexa Server vom Typ Start</param>
+      /// <returns></returns>
+      private SkillResponse StartVerwalter(SkillRequest anfrage)
         {
             string text = "Herzlich Willkommen!";
             string title = "Connext Campus";
@@ -110,14 +131,24 @@ namespace Essensplan.Controllers
             return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Willkommen, text, title, speech, DateTime.Now, false);
         }
 
-        // ##############################################################################################################
-        private SkillResponse SitzungBeendenVerwalter(SkillRequest request)
+      // ##############################################################################################################
+      /// <summary>
+      /// Regelt die Antwort beim Beenden des Alexa Skills
+      /// </summary>
+      /// <param name="request">Enthält die Anfrage vom Amazon Alexa Server vom Typ SitzungBeenden</param>
+      /// <returns></returns>
+      private SkillResponse SitzungBeendenVerwalter(SkillRequest request)
         {
             return AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Ended, AlexaAntwortHelfer.Ended, FehlerTypen.Ended.ToDescription(), null, DateTime.Now, true);
         }
 
-        // ##############################################################################################################
-        private SkillResponse ElementKlickVerwalter(SkillRequest request)
+      // ##############################################################################################################
+      /// <summary>
+      /// Verwaltet die touchinteraktion mit dem Alexa Skill
+      /// </summary>
+      /// <param name="request">Enthält die Anfrage vom Amazon Alexa Server vom Typ ElementKlick</param>
+      /// <returns></returns>
+      private SkillResponse ElementKlickVerwalter(SkillRequest request)
         {
             var kw = 0;
             var year = DateTime.Now.Year;
@@ -133,8 +164,13 @@ namespace Essensplan.Controllers
             return EssenDetailsResponseHelper.GetEssenDetailsResponse(request, speisePlan, -1, tag, id);
         }
 
-        // ##############################################################################################################
-        private SkillResponse SpeisePlanKommando(SkillRequest anfrage)
+      // ##############################################################################################################
+      /// <summary>
+      /// Gibt die richtige Antwort auf eine Anfrage vom Typ SpeiseplanKommando
+      /// </summary>
+      /// <param name="anfrage">Enthält die Anfrage vom Amazon Alexa Server vom Typ SpeiseplanKommando</param>
+      /// <returns></returns>
+      private SkillResponse SpeisePlanKommando(SkillRequest anfrage)
         {
             var tag = anfrage.GetDateTime(SlotValues.Tag.ToString());
             var kw = DateTime.Now.GetWeekOfYear();
@@ -158,8 +194,13 @@ namespace Essensplan.Controllers
                 return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Error, FehlerTypen.NoSpeisePlan.ToDescription(), "", null, tag.Value.Date, false);
         }
 
-        // ##############################################################################################################
-        private SkillResponse TagUndKategorieKommando(SkillRequest anfrage)
+      // ##############################################################################################################
+      /// <summary>
+      /// 
+      /// </summary>
+      /// <param name="anfrage">Enthält die Anfrage vom Amazon Alexa Server</param>
+      /// <returns></returns>
+      private SkillResponse TagUndKategorieKommando(SkillRequest anfrage)
         {
             var intentRequest = (IntentRequest)anfrage.Request;
 
@@ -234,14 +275,24 @@ namespace Essensplan.Controllers
             }
         }
 
-        // ##############################################################################################################
-        private SkillResponse PreisIntent(SkillRequest anfrage)
+      // ##############################################################################################################
+      /// <summary>
+      /// Gibt die richtige Antwort auf die Frage nach den preisen
+      /// </summary>
+      /// <param name="anfrage">Enthält die Anfrage vom Amazon Alexa Server vom Typ PreisIntent</param>
+      /// <returns></returns>
+      private SkillResponse PreisIntent(SkillRequest anfrage)
         {
             string speech = "Die Vorspeise kostet 2 Euro. Menü 1 kostet 7,90 Euro. Menü 2 kostet 6,90 Euro. Das vegetarische Menü kostet 4,90 Euro.";
             return AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Preis, speech, "Preise", speech, DateTime.Now, false);
         }
 
         // ##############################################################################################################
+        /// <summary>
+        /// Konvertiert die Daten der DB in verarbeitbare Elemente
+        /// </summary>
+        /// <param name="heutigeMenues"></param>
+        /// <returns></returns>
         private List<SpeisePlan> SpeisePlanConverter(List<SpeisePlanDB> heutigeMenues)
         {
             var result = new List<SpeisePlan>();
