@@ -106,13 +106,13 @@ namespace Essensplan.Controllers
             else if (intentRequest.Intent.Name.Equals("TagUndKategorieKommando"))
                 antwort = TagUndKategorieKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("WocheNachKategorieKommando"))
-                antwort = WocheNachKategorieIntent(anfrage);
+                antwort = WocheNachKategorieKommando(anfrage);
             else if (intentRequest.Intent.Name.Equals("PreisKommando"))
                 antwort = PreisIntent(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.CancelIntent"))
                 antwort = SitzungBeendenVerwalter(anfrage);
             else if (intentRequest.Intent.Name.Equals("AMAZON.StopIntent"))
-                antwort = AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
+                antwort= AlexaAntwortHelfer.GibEinfacheAntwort(anfrage, SkillTypen.Stop, SkillTypen.Stop.ToDescription(), "", null, DateTime.Now, false);
 
             return antwort;
         }
