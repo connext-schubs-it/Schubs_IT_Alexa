@@ -37,7 +37,7 @@ namespace Essensplan.Controllers
             var client = new HttpClient();
             var speisePlaene = new List<SpeisePlan>();
             var path = $"{api}{kw}/{year}";
-            path = "https://cx-schubsit.connext.de/api/speiseplan/kw/7"; // Markus Datenbank. Pläne müssen mit dem SpeiseplanConverter konvertiert werden
+            path = "https://cx-schubsit-api.azurewebsites.net/api/speiseplan/kw/7"; // Markus Datenbank auf Azure. Pläne müssen mit dem SpeiseplanConverter konvertiert werden
             //path = "https://cx-hotel.connext.de:8080/api/speiseplan/kw/2/2019";  // Dennis Datenbank
             //var path = $"{api}7/2019";
             var response = await client.GetAsync(path);
