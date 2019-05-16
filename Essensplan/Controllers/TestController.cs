@@ -24,7 +24,7 @@ namespace Essensplan.Controllers
                 return new BadRequestResult();
             
             var response = AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Error, FehlerTypen.FehlerAnfrage.ToDescription(), "", null, DateTime.Now, null);
-            var requestType = request.GetRequestType();
+             var requestType = request.GetRequestType();
 
             if (requestType == typeof(LaunchRequest))
                 response = LaunchRequestHandler(request);
@@ -40,7 +40,7 @@ namespace Essensplan.Controllers
 
         private SkillResponse LaunchRequestHandler(SkillRequest request)
         {
-            return AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Ended, "Hi. Mit diesem Skill kannst du zwei Farben mischen.", "", null, DateTime.Now, null);
+            return AlexaAntwortHelfer.GibEinfacheAntwort(request, SkillTypen.Ended, "Hi. Mit diesem Skill kannst du zwei Farben mischen.", "", null, DateTime.Now, false);
         }
 
         private SkillResponse IntentRequestHandler(SkillRequest request)
@@ -75,8 +75,8 @@ namespace Essensplan.Controllers
             else
             {
                 var text = "Daraus ergibt sich";
-                var farbe1 = request.GetSlotValueInt("Farbe_I", -1);
-                var farbe2 = request.GetSlotValueInt("Farbe_II", -1);
+                var farbe1 = request.GetSlotValueInt("FarbeEins", -1);
+                var farbe2 = request.GetSlotValueInt("FarbeZwei", -1);
 
                 if (farbe1 == 1 && farbe2 == 2 || farbe1 == 2 && farbe2 == 1)
                 {
